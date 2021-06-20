@@ -64,11 +64,19 @@
 
 #ifdef VIAL_ENCODERS_ENABLE
 #ifdef SPLIT_KEYBOARD
-#define NUMBER_OF_ENCODERS (2 * sizeof(encoders_pad_a) / sizeof(pin_t))
+#define NUMBER_OF_ENCODERS (2 * sizeof(encoders_pad_a) / sizeof(*encoders_pad_a))
 #else
-#define NUMBER_OF_ENCODERS (sizeof(encoders_pad_a) / sizeof(pin_t))
+#define NUMBER_OF_ENCODERS (sizeof(encoders_pad_a) / sizeof(*encoders_pad_a))
 #endif
+#ifdef ENCODER_MATRIX
+typedef struct {
+    uint8_t row;
+    uint8_t col;
+} encoder_pin_pair;
+static encoder_pin_pair PROGMEM encoders_pad_a[] = ENCODERS_PAD_A;
+#else
 static pin_t encoders_pad_a[] = ENCODERS_PAD_A;
+#endif
 #define VIAL_ENCODERS_SIZE (NUMBER_OF_ENCODERS * DYNAMIC_KEYMAP_LAYER_COUNT * 2 * 2)
 #else
 #define VIAL_ENCODERS_SIZE 0
