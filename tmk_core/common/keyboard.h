@@ -49,7 +49,7 @@ static inline bool IS_PRESSED(keyevent_t event) { return (!IS_NOEVENT(event) && 
 static inline bool IS_RELEASED(keyevent_t event) { return (!IS_NOEVENT(event) && !event.pressed); }
 
 /* Tick event */
-#define TICK \
+#define QMK_TICK \
     (keyevent_t) { .key = (keypos_t){.row = 255, .col = 255}, .pressed = false, .time = (timer_read() | 1) }
 
 /* it runs once at early stage of startup before keyboard_init. */

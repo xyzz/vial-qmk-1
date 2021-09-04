@@ -38,3 +38,7 @@
 #if defined(MK66F18)
 #    define STM32_SYSCLK KINETIS_SYSCLK_FREQUENCY
 #endif
+
+#if defined(RP2040)
+#    define STM32_SYSCLK 125000000
+#endif

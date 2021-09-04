@@ -166,10 +166,11 @@ include $(BOARD_MK)
 # RTOS files (optional).
 include $(CHIBIOS)/os/rt/rt.mk
 # Compability with old version
-PORT_V = $(CHIBIOS)/os/rt/ports/ARMCMx/compilers/GCC/mk/port_v$(ARMV)m.mk
-ifeq ("$(wildcard $(PORT_V))","")
-PORT_V = $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v$(ARMV)m.mk
-endif
+# PORT_V = $(CHIBIOS)/os/rt/ports/ARMCMx/compilers/GCC/mk/port_v$(ARMV)m.mk
+# ifeq ("$(wildcard $(PORT_V))","")
+# PORT_V = $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v$(ARMV)m.mk
+# endif
+PORT_V = $(CHIBIOS)/os/common/ports/ARMv6-M-RP2/compilers/GCC/mk/port.mk
 include $(PORT_V)
 # Other files (optional).
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk

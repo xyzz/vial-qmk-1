@@ -91,11 +91,14 @@ const USB_Descriptor_HIDReport_Datatype_t PROGMEM KeyboardReport[] = {
         HID_RI_USAGE_MAXIMUM(8, 0x05), // Kana
         HID_RI_REPORT_COUNT(8, 0x05),
         HID_RI_REPORT_SIZE(8, 0x01),
-        HID_RI_OUTPUT(8, HID_IOF_DATA | HID_IOF_VARIABLE | HID_IOF_ABSOLUTE | HID_IOF_NON_VOLATILE),
-        // LED padding (3 bits)
-        HID_RI_REPORT_COUNT(8, 0x01),
-        HID_RI_REPORT_SIZE(8, 0x03),
-        HID_RI_OUTPUT(8, HID_IOF_CONSTANT),
+        // 0x91, 0x2, // stock - broken
+        // 0x90, 0x00, // broken
+        0x00, 0x00, // working
+        // HID_RI_OUTPUT(8, HID_IOF_DATA | HID_IOF_VARIABLE | HID_IOF_ABSOLUTE | HID_IOF_NON_VOLATILE),
+        // // LED padding (3 bits)
+        // HID_RI_REPORT_COUNT(8, 0x01),
+        // HID_RI_REPORT_SIZE(8, 0x03),
+        // HID_RI_OUTPUT(8, HID_IOF_CONSTANT),
     HID_RI_END_COLLECTION(0),
 #ifndef KEYBOARD_SHARED_EP
 };
