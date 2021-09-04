@@ -503,6 +503,7 @@ ifneq ($(findstring RP2040, $(MCU)),)
 
   # UF2 settings
   UF2_FAMILY ?= RP2040
+  FIRMWARE_FORMAT ?= uf2
 endif
 
 ifneq (,$(filter $(MCU),at90usb162 atmega16u2 atmega32u2 atmega16u4 atmega32u4 at90usb646 at90usb647 at90usb1286 at90usb1287))
